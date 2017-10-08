@@ -1,3 +1,63 @@
 page-home {
 
+  .scroll-content {
+    margin-top:0px !important;
+  };
+
+  h2 {
+    font-size: 1.4em;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgba(0, 0, 0, 0.36);
+    margin-right: auto;
+  }
+
+  ion-header::after {
+    background: transparent;
+    background-image: none;
+  }
+
+  .toolbar-background{
+    background-color: transparent;
+  }
+
+  .header-md::after, .tabs-md[tabsPlacement="top"] > .tabbar::after, .footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before{
+    background-image: none;
+  }
+  .main-content ion-icon {
+    font-size: 2.4em;
+    color: white;
+    margin-left: 0.3em;
+    margin-right: auto;
+  }
+  .header-image {
+    height: 50em;
+  }
+
+  p{
+    text-align: justify;
+  }
+
+  .main-content {
+    width: -webkit-fill-available;
+    top: 8vh;
+  }
+
+  .home-content{
+    padding: 4em 15%;
+    margin: 0 auto;
+    width: -webkit-fill-available;
+  }
+
+  .home-welcome{
+    width: fit-content;
+    margin: 18px auto;
+    color: #ffffff;
+  }
+
+  .home-button{
+    width: -webkit-fill-available;
+    height:8em;
+    padding: 20px 1.1em;
+    margin: 2em 0;
+  }
 }

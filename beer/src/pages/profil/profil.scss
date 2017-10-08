@@ -1,0 +1,44 @@
+page-profil {
+  ion-header::after {
+    background: transparent;
+    background-image: none;
+  }
+
+  .scroll-content {
+    margin-top:0px !important;
+  };
+
+  .toolbar-background{
+    background-color: transparent;
+  }
+
+  .header-md::after, .tabs-md[tabsPlacement="top"] > .tabbar::after, .footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before{
+    background-image: none;
+  }
+  .background-image{
+    background-image: url(https://unsplash.it/300?image=279);
+    height:250px;
+    background-size: cover;
+    filter: blur(5px);
+    background-position: center center;
+  }
+
+  .main-cnt{
+    width: 100%;
+    height: 700px;
+    background-color: #ffffff;
+  }
+
+  .profil-image {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    z-index: 10;
+    margin-top: -90px;
+    position: relative;
+    left:50%;
+    margin-right: -50%;
+    transform:translate(-50%, -50%);
+    box-shadow: -6px 15px 81px 3px rgba(0,0,0,0.75);
+  }
+}

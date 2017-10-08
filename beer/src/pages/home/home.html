@@ -1,14 +1,33 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+<ion-header >
+  <ion-navbar >
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content parallax-header>
+
+  <div class="header-image" style="background-image: url('assets/img/home-background.png')"></div>
+
+  <div class="main-content">
+
+    <div class="home-content">
+      <ion-img style="background: transparent; contain: none;" src="assets/img/beer-finder-logo.png"></ion-img>
+    </div>
+
+    <button ion-button class="home-button" style="background-color: rgba(72, 97, 255, 0.40);" [navPush]="locationPage">
+      <ion-icon name="compass"></ion-icon>
+      <h2>Trouver des bières?</h2>
+    </button>
+      <button ion-button class="home-button" style="background-color: rgba(46, 201, 92, 0.50);" [navPush]="listBeerPage">
+        <ion-icon name="beer"></ion-icon>
+        <h2>Liste des bières</h2>
+        </button>
+    <button ion-button class="home-button" style="background-color: rgba(255, 197, 72, 0.40);" [navPush]="profilPage">
+      <ion-icon large name="person"></ion-icon>
+      <h2>Profil</h2>
+    </button>
+  </div>
+
 </ion-content>

@@ -1,0 +1,21 @@
+page-bar-detail {
+  .adress-chip{
+    width: -webkit-fill-available;
+    max-width: fit-content;
+  }
+
+  .chip-md{
+    margin: 8px 0;
+  }
+
+  ion-label{
+    color: #2b2b2b;
+    font-weight: 100;
+    font-size: 1em;
+  }
+
+  .separator{
+    border-bottom: 1px solid #dedede;
+    margin: 20px 10px 10px 10px;
+  }
+}

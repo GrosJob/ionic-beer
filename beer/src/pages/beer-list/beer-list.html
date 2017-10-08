@@ -1,0 +1,31 @@
+<ion-header>
+  <expandable-header [scrollArea]="mycontent" headerHeight="125">
+    <ion-searchbar class="header-item" placeholder="Recherche" (ionInput)="filterItems($event)" (search)="onSearch()"></ion-searchbar>
+    <ion-item class="filter-item">
+      <ion-label>Filtre</ion-label>
+      <ion-select [(ngModel)]="types" multiple="true" [selectOptions]="typeAlertOpts">
+        <ion-option *ngFor="let item of beerTypes" [value]="item.value">{{item.text}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </expandable-header>
+
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Toute les bières</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content fullscreen #mycontent>
+  <ion-list [virtualScroll]="beers">
+    <ion-item *virtualItem="let item" (tap)="beerDetail(item);" tappable>
+      <ion-avatar item-left>
+        <img class="beer_item" src="assets/img/{{item.icon_beer}}">
+      </ion-avatar>
+      <h2>{{item.name_beer}}</h2>
+      <p>{{item.type_beer}}</p>
+      <ion-icon item-right small name='beer' [style]="getColor(item.type_beer)"></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>

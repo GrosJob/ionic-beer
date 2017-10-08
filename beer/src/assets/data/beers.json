@@ -1,0 +1,209 @@
+{
+  "beers": [
+    {
+      "id": "1",
+      "img_beer": "3-monts.jpg",
+      "icon_beer": "3-monts_icon.png",
+      "name_beer": "3 Monts",
+      "type_beer": "Blonde",
+      "degree_beer": "8,5",
+      "remarque_beer": "La Trois Monts ou 3 Monts est une bière fabriquée à Saint-Sylvestre-Cappel par la Brasserie de Saint-Sylvestre, dans le Nord, en France. La 3 Monts est brassée selon une méthode ascendante, avec des houblons flamands, puis fermentée avec des levures hautes."
+    },
+    {
+      "id": "2",
+      "img_beer": "bellerose.jpg",
+      "icon_beer": "bellerose_icon.png",
+      "name_beer": "bellerose",
+      "type_beer": "Blonde",
+      "degree_beer": "6,5",
+      "remarque_beer": "De jolis arômes de céréales se révèlent au nez, accompagnés de pointes finement épicées et houblonnées. A noter également, la présence discrète d’arômes agrumés pour compléter le tableau. En bouche, c’est plutôt rond voire légèrement sucré, et contrebalancé par de solides pointes d’amertume. L’équilibre est là, pas de doute."
+    },
+    {
+      "id": "3",
+      "img_beer": "chimay-bleu.jpg",
+      "icon_beer": "chimay-bleu_icon.png",
+      "name_beer": "Chimay bleu",
+      "type_beer": "Brune",
+      "degree_beer": "9",
+      "remarque_beer": "Quelle complexité dans cette magnifique bière trappiste! Un véritable bouquet d'épices explose au nez, accompagné de superbes arômes fruités. En bouche, l'amertume est très longue et les saveurs sont multiples avec du sucre roux, du caramel et des fruits noirs. La torréfaction du malt est très présente jusque sur la finale. Une bière exceptionnelle !"
+    },
+    {
+      "id": "4",
+      "img_beer": "chimay-rouge.jpg",
+      "icon_beer": "chimay-rouge_icon.png",
+      "name_beer": "Chimay rouge",
+      "type_beer": "Rouge",
+      "degree_beer": "7",
+      "remarque_beer": "Le nez révèle de magnifiques odeurs maltées, des notes caramel et des arômes d'abricot développés durant la fermentation. Le caramel se retrouve parfaitement en bouche ainsi qu'une amertume, légère, qui se dévoile. La finale est légèrement sèche et levurée. Une superbe trappiste !"
+    },
+    {
+      "id": "5",
+      "img_beer": "chimay-triple.jpg",
+      "icon_beer": "chimay-triple_icon.png",
+      "name_beer": "Chimay triple",
+      "type_beer": "Blonde",
+      "degree_beer": "8",
+      "remarque_beer": "En complément des arômes maltés et finement levurés des bières trappistes, celle-ci nous en donne d’autres, plus fruités, se rapprochant de la pomme et du raisin sec. En bouche, c’est parfaitement équilibré entre une amertume houblonnée certaine et, encore une fois, ces notes fruitées très agréables. La finale reste sur le houblon amérisant avec des touches levurées. Une trappiste surprenante !"
+    },
+    {
+      "id": "6",
+      "img_beer": "chti.jpg",
+      "icon_beer": "chti_icon.png",
+      "name_beer": "Chti",
+      "type_beer": "Blonde",
+      "degree_beer": "6,4",
+      "remarque_beer": "La bière Ch'ti Blonde fait partie intégrante du patrimoine nordiste brassicole avec d'autres bières telles que les bières Page 24 ou Anosteké. Bière de garde, elle subit une garde de 6 semaines, ce qui lui donne cet équilibre et cette finesse en bouche incomparable. Le brasseur a dû faire preuve de patience pour vous proposer cette bière, il vous en faudra, vous aussi, pour apprécier cette bière blonde dorée aux arômes délicats et à l'aspect moelleux en bouche."
+    },
+    {
+      "id": "7",
+      "img_beer": "corona.jpg",
+      "icon_beer": "corona_icon.png",
+      "name_beer": "Corona",
+      "type_beer": "Blonde",
+      "degree_beer": "4,6",
+      "remarque_beer": "Née en 1925, elle est brassée avec environ 40% de riz et très peu de houblon. Des zestes de citron sont ajoutés lors du brassage. A l'origine créée pour les ouvriers mexicains, cette bière très rafraîchissante et bon marché a rapidement séduit le Mexique et le reste du monde. C'est une bière à la robe d'un jaune extrêmement pâle et qui ne développe aucune mousse une fois dans le verre. Elle offre au nez des arômes de malts et de citron et des saveurs assez similaires. Une légère amertume se développe sur la fin de bouche."
+    },
+    {
+      "id": "8",
+      "img_beer": "cuvee-des-trolls.jpg",
+      "icon_beer": "cuvee-des-trolls_icon.png",
+      "name_beer": "Cuvee des trolls",
+      "type_beer": "Blonde",
+      "degree_beer": "7",
+      "remarque_beer": "Un joli nez fruité et épicé qui dégage également des notes de levure et un peu d’alcool. La bouche est plutôt ronde sur des arômes de caramel légèrement sucrés qui s’équilibrent avec une amertume agréable et des saveurs d’agrumes, d’épices et de levure."
+    },
+    {
+      "id": "9",
+      "img_beer": "desperados.jpg",
+      "icon_beer": "desperados_icon.png",
+      "name_beer": "Desperados",
+      "type_beer": "Aromatisée",
+      "degree_beer": "5,9",
+      "remarque_beer": "Cette bière est un produit spécial qui est à la limite entre cocktail alcoolisé et bière légère. Elle se compose de bière, de sucre, d'arômes (75% de Tequila) et contient du malt d'orge. C'est une bière sucrée mais rafraichissante et qui ne développe aucune amertume"
+    },
+    {
+      "id": "10",
+      "img_beer": "desperados-red.jpg",
+      "icon_beer": "desperados-red_icon.png",
+      "name_beer": "Desperados red",
+      "type_beer": "Rouge",
+      "degree_beer": "5,9",
+      "remarque_beer": "La petite soeur de la très célèbre 'Despé', avec ce petit goût unique de bière arômatisée à la Téquila et les arômes dynamisant et exotiques du Cachaça et de la Guarana ! Elle présente une robe rouge et ne dégage que peu de mousse une fois dans le verre. Cette Desperados Red libère des arômes doux et fruités de framboise et de fruits rouges avec une pointe évoquant la Téquila."
+    },
+    {
+      "id": "11",
+      "img_beer": "desperados-verde.jpg",
+      "icon_beer": "desperados-verde_icon.png",
+      "name_beer": "Desperados verde",
+      "type_beer": "Aromatisée",
+      "degree_beer": "4,7",
+      "remarque_beer": "Avec son twist habituel qui fait sa marque de fabrique, DESPERADOS VERDE est une bière à base d’arômes de Tequila, de menthe, de citron et de citron vert. Une alternative surprenante et rafraîchissante."
+    },
+    {
+      "id": "12",
+      "img_beer": "duff.jpg",
+      "icon_beer": "duff_icon.png",
+      "name_beer": "Duff",
+      "type_beer": "Blonde",
+      "degree_beer": "4,9",
+      "remarque_beer": "La Duff Beer, la bière d'une légendaire série télévisée américaine arrive en lot de 4. Cette bière est une bière blonde et légère. Produite en Allemagne, la Duff Beer est brassée au monastère Eschwege.Sa légèreté et son houblon malté vous convaincront de goûter la bière préférée du personnage principal de la série !"
+    },
+    {
+      "id": "13",
+      "img_beer": "duvel.jpg",
+      "icon_beer": "duvel_icon.png",
+      "name_beer": "Duvel",
+      "type_beer": "Blonde",
+      "degree_beer": "8,5",
+      "remarque_beer": "En bouche on y retrouve un grand équilibre olfactif, avec des saveurs fruitées de houblon et de levure qui sont soutenus par une légère rondeur maltée. Les touches épicées de la levure relèvent l'ensemble, accompagnées d'une amertume franche et prononcée. L'ensemble apparait extrêmement fruité quoi que faiblement sucré et l'harmonie des saveurs en fait oublier la présence de l'alcool dans cette bière qui titre tout de même à 8.5° !"
+    },
+    {
+      "id": "14",
+      "img_beer": "faro.jpg",
+      "icon_beer": "faro_icon.png",
+      "name_beer": "Faro",
+      "type_beer": "Ambrée",
+      "degree_beer": "4,2",
+      "remarque_beer": "La Lindemans Faro est une bière de blé (froment) de fermentation spontanée et au goût aigre-doux parfaitement équilibré par l'ajout d'une dose supplémentaire de sucre candi. Elle présente une robe de couleur rouge-orangé qui se surmonte d'une fine couche de mousse blanche. La Lindemans Faro révèle des arômes boisés et aigre-doux de fruits, de fruits secs, de caramel et de sucre candi. On retrouve en bouche une pointe d'acidité qui s'accompagne de saveurs douces et sucrées de fruits, ainsi que de légères touches boisées."
+    },
+    {
+      "id": "15",
+      "img_beer": "heineken.jpg",
+      "icon_beer": "heineken_icon.png",
+      "name_beer": "Heineken",
+      "type_beer": "Blonde",
+      "degree_beer": "5",
+      "remarque_beer": "La Heineken est une bière blonde de type Pale lager à 5 %. La première Heineken a été brassée en 1873. Elle a remporté les titres suivants : Médaille d'Or à Paris en 1875, Diplôme d'Honneur à l'Exposition coloniale internationale d'Amsterdam en 1883, Grand Prix Exposition universelle de Paris in 1889 et Hors Concours Membre du Jury à Paris en 1900."
+    },
+    {
+      "id": "16",
+      "img_beer": "hoegaarden-blanche.jpg",
+      "icon_beer": "hoegaarden-blanche_icon.png",
+      "name_beer": "Hoegaarden Blanche",
+      "type_beer": "Blanche",
+      "degree_beer": "4,9",
+      "remarque_beer": "La bière Hoegaarden est un exemple du style de bière witbier, une bière blanche de blé2. Ce style, le premier appartenant aux bières dites « blanches », fut créé par les moines du village Hoegaarden aux alentours de 1445."
+    },
+    {
+      "id": "17",
+      "img_beer": "rince-cochon-rouge.jpg",
+      "icon_beer": "rince-cochon-rouge_icon.png",
+      "name_beer": "Rince Cochon Rouge",
+      "type_beer": "Rouge",
+      "degree_beer": "7,5",
+      "remarque_beer": "Le caractère de cette bière blonde forte se cache donc dans sa robe rose foncée qui évoque les fruits rouges des bois. Pourtant, contrairement à la plupart des bières fruitées, celle-ci n'est pas une bière légère et fruitée de plus puisqu'elle est titrée à 7,5%. Cette robe se couvre d'une tête de mousse légèrement rose assez épaisse et qui tient bien dans le verre"
+    }
+  ],
+  "bars": [
+    {
+      "name": "Café Oz - the Australian Bar",
+      "img_bar": "cafe-oz.jpg",
+      "icon_bar": "cafe-oz_icon.png",
+      "pointer_bar": "cafe-oz_pointer.png",
+      "adress": "33 Place Louise de Bettignies, 59800 Lille",
+      "phone": "03 20 14 58 07",
+      "lat":"50.641687",
+      "lng":"3.064878",
+      "beer_list": [
+        "2", "6", "8", "9", "12", "16", "17"
+      ]
+    },
+    {
+      "name": "Brasserie La Chicorée",
+      "img_bar": "brasserie-la-chicorée.jpg",
+      "icon_bar": "brasserie-la-chicorée_icon.png",
+      "pointer_bar": "brasserie-la-chicorée_pointer.png",
+      "adress": "15 Place Rihour, 59000 Lille",
+      "phone": "03 20 54 81 52",
+      "lat":"50.635997",
+      "lng":"3.063217",
+      "beer_list": [
+        "1", "3", "6", "11", "12", "15", "17"
+      ]
+    },
+    {
+      "name": "Dernier Bar avant la Fin du Monde",
+      "img_bar": "dernier-bar-avant-la-fin-du-monde.jpg",
+      "icon_bar": "dernier-bar-avant-la-fin-du-monde_icon.png",
+      "pointer_bar": "dernier-bar-avant-la-fin-du-monde_pointer.png",
+      "adress": "12 Rue de Pas, 59000 Lille",
+      "phone": "03 61 50 43 20",
+      "lat":"50.640997",
+      "lng":"3.060053",
+      "beer_list": [
+        "2", "3", "5", "8", "11", "13", "16"
+      ]
+    },
+    {
+      "name": "Le Privilège",
+      "img_bar": "le-privilege.jpg",
+      "adress": "2 Rue Royale, 59000 Lille",
+      "phone": "03 20 21 12 19",
+      "lat":"50.642771",
+      "lng":"3.058778",
+      "beer_list": [
+        "5", "7", "9", "12", "13", "15", "17"
+      ]
+    }
+  ]
+}

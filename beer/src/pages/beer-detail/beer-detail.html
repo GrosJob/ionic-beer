@@ -1,0 +1,32 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>detail</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding *ngIf="beer" >
+
+  <ion-card>
+
+    <img src="assets/img/{{beer.img_beer}}" *ngIf="beer.img_beer">
+
+    <ion-card-content>
+      <ion-card-title>
+        {{ beer.name_beer }}
+      </ion-card-title>
+      <ion-item>
+        <ion-icon name='beer' item-start [style]="getColor(beer.type_beer)"></ion-icon>
+        {{ beer.type_beer }}
+        <ion-badge item-end [style]="getDegreeColor(beer.degree_beer)"> {{ beer.degree_beer }}°</ion-badge>
+      </ion-item>
+      <p>
+        {{ beer.remarque_beer }}
+      </p>
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>

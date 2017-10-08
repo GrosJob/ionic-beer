@@ -1,0 +1,64 @@
+page-beer-list {
+  .header-item{
+    background: inherit;
+    padding: 8px;
+    opacity: 0.7;
+  }
+
+  .filter-item {
+    background-color: #488aff;
+    padding: 8px;
+    opacity: 0.7;
+  }
+
+  .filter-item .input-wrapper {
+    background-color: white;
+    border-radius: 2px;
+  }
+
+  .filter-item .item-inner {
+    padding-right: 0px !important;
+    border-bottom: 0px solid #dedede !important;
+  }
+
+  .filter-item .item-inner .label {
+    padding-left: 20px;
+  }
+  .beer_item {
+    background-image: radial-gradient(closest-side ellipse at center, rgba(4, 141, 253, 0.33), rgb(255, 255, 255));
+    border-radius: 30%;
+    padding: 3px;
+    width: 60px !important;
+    height: 60px !important;
+    margin: 5px;
+  }
+
+  .list-md .item-block .item-inner {
+    border-bottom: 0px;
+  }
+
+  .virtual-scroll .virtual-position, .virtual-scroll .virtual-position.item {
+    border-bottom: 1px solid #dedede;
+  }
+
+  .searchbar-md .searchbar-input {
+    box-shadow: 0px 0px 0px 0px;
+  }
+
+  .blonde {
+    color: #fce811;
+  }
+
+  .brune {
+    color: #826100;
+  }
+
+  .blanche {
+    color: #e3e8c7;
+  }
+
+  .rouge {
+    color: #fc5f72;
+  }
+
+}

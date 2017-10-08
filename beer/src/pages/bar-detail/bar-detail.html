@@ -1,0 +1,56 @@
+<!--
+  Generated template for the BarDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Infos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding *ngIf="bar" >
+
+  <ion-card>
+
+    <img src="assets/img/bar/{{bar.img_bar}}" *ngIf="bar.img_bar">
+
+    <ion-card-content>
+      <ion-card-title>
+        {{ bar.name }}
+      </ion-card-title>
+
+      <h3 class="separator">Infos</h3>
+        <ion-chip class="adress-chip">
+          <ion-icon name="navigate"></ion-icon>
+          <ion-label>{{ bar.adress }}</ion-label>
+        </ion-chip>
+
+        <ion-chip>
+          <ion-icon name="call" color="secondary"></ion-icon>
+          <ion-label>{{ bar.phone}}</ion-label>
+        </ion-chip>
+
+      <h3 class="separator">Bières</h3>
+
+
+      <ion-list [virtualScroll]="beerList">
+        <ion-item *virtualItem="let item" (tap)="beerDetail(item);" tappable>
+          <ion-avatar item-left>
+            <img class="beer_item" src="assets/img/{{item.icon_beer}}">
+          </ion-avatar>
+          <h2>{{item.name_beer}}</h2>
+          <p>{{item.type_beer}}</p>
+          <ion-icon item-right small name='beer' [style]="getColor(item.type_beer)"></ion-icon>
+        </ion-item>
+      </ion-list>
+
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>
