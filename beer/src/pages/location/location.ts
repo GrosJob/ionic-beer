@@ -1,66 +1,38 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
 import {AlertController, FabContainer, LoadingController, NavController} from 'ionic-angular';
-import {Geolocation} from "@ionic-native/geolocation";
 import {BarDetailPage} from "../bar-detail/bar-detail";
 import {DataProvider} from "../../providers/data/data";
+import {MapLocationProvider} from "../../providers/map-location/map-location";
 
-declare var google;
+declare let google;
 
 @Component({
   selector: 'page-location',
   templateUrl: 'location.html',
 })
 export class LocationPage {
-  bars: any;
+  bars: any = [];
+  allBars: any = [];
   loading: any;
+  selectedBar: any;
+  selectedTime: any;
 
   @ViewChild('map') mapElement: ElementRef;
-  map: any;
-  directionsService = new google.maps.DirectionsService;
-  directionsDisplay = new google.maps.DirectionsRenderer;
-  myLocation: {lat: number, lng: number};
-  destination: {lat: number, lng: number};
-  myMarker: any;
-  travelMode: any = 'DRIVING';
   travelIcon: any = "car";
-  myIcon = {
-    url: "assets/icon/icon.png", // url
-    scaledSize: new google.maps.Size(40, 40), // scaled size
-    origin: new google.maps.Point(0,0), // origin
-    anchor: new google.maps.Point(25,30)
-  };
 
-  constructor(public geolocation: Geolocation, public navCtrl: NavController, public alertCtrl: AlertController, public loadingController: LoadingController, public dataProvider: DataProvider) {
+  constructor(public navCtrl: NavController, public loadingController: LoadingController,  public mapProvider: MapLocationProvider, public dataProvider: DataProvider, public alertCtrl: AlertController) {
+    this.loading = this.loadingController.create({content: "Recherche des bars près de votre position..."});
+    this.loading.present();
+    this.mapProvider.getMyLocation().then(value => {
+        this.loadBars();
+      })
+      .catch((error) => {
+          this.loading.dismissAll();
+        })
   }
 
   ionViewDidLoad(){
-    this.initMap();
-    this.directionsDisplay.setOptions( { suppressMarkers: true });
-    this.getMyLocation();
-  }
-
-
-  loadBars(){
-    this.dataProvider.loadBar()
-      .then(data=> {
-        this.bars = data;
-        for (let bar of this.bars) {
-          this.showBarOnMap(bar.lat, bar.lng, bar.pointer_bar);
-        }
-        this.loading.dismissAll();
-      });
-  }
-
-  getDistance() {
-    this.dataProvider.getDistanceWay("origin", "dest", this.travelMode)
-      .then(data=> {
-        console.log(data);
-      });
-  }
-
-
-  initMap() {
-    this.map = new google.maps.Map(this.mapElement.nativeElement, {
+    let map = new google.maps.Map(this.mapElement.nativeElement, {
       zoom: 10,
       center: {lat: 50.629720, lng: 3.061409},
       mapTypeControl: false,
@@ -68,50 +40,66 @@ export class LocationPage {
       zoomControl: false,
       fullscreenControl: false,
     });
-    this.myMarker = new google.maps.Marker();
-    this.map.setTilt(45);
-    this.directionsDisplay.setMap(this.map);
+    this.mapProvider.init(map);
   }
 
-  showBarOnMap(barLat, barLng, icon) {
-    if (icon){
-      this.myIcon.url = "assets/img/bar/" + icon;
-    } else {
-      this.myIcon.url = "assets/icon/bar_pointer.png";
-    }
-    new google.maps.Marker({
-      position: {lat: parseFloat(barLat), lng: parseFloat(barLng)},
-      icon: this.myIcon,
-      map: this.map
+  loadBars(){
+    this.dataProvider.loadBar()
+      .then(data=> {
+        this.allBars = data;
+        this.computeDistance().then( tmp=> {
+          this.bars = tmp;
+          this.sortList();
+          this.loading.dismissAll();
+        })
+      })
+    .catch( (error) => {
+      this.loading.dismissAll();
     });
   }
 
-
-  displayRoute() {
-    if (this.destination) {
-      this.loading = this.loadingController.create({content: "Calcul de l'itinéraire..."});
-      this.loading.present();
-      this.directionsService.route({
-        origin: this.myLocation,
-        destination: this.destination,
-        travelMode: this.travelMode
-      }, (response, status) => {
-        if (status === 'OK') {
-          this.directionsDisplay.setDirections(response);
-          this.loading.dismissAll();
-        } else {
-          this.loading.dismissAll();
-          window.alert('Directions request failed due to ' + status);
-        }
-      });
-    }
+  computeDistance() {
+    return new Promise((resolve) => {
+      let tmp:any = [];
+      for (let i = 0; i < this.allBars.length; i++) {
+        this.mapProvider.getDistance(this.allBars[i]).then( result => {
+          tmp.push(result);
+          this.addPointerOnMap(result);
+          if (i == this.allBars.length - 1) {
+            resolve(tmp);
+          }});
+      }
+    })
   }
 
-  clickOnDestination(destLat, destLng, slideItem) {
+  sortList() {
+    this.bars.sort( function(bar1, bar2) {
+      if (bar1.dist < bar2.dist) {
+        return -1;
+      } else if (bar1.dist > bar2.dist) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+  }
+
+  addPointerOnMap(bar) {
+    let position = {lat: parseFloat(bar.lat), lng: parseFloat(bar.lng)};
+    let url = "assets/icon/bar_pointer.png";
+    if (bar.pointer_bar){
+      url = "assets/img/bar/" + bar.pointer_bar;
+    }
+    this.mapProvider.addMarkenOnMap(position, url);
+  }
+
+  //CLICK EVENT
+  clickOnDestination(bar, destLat, destLng, slideItem, time) {
+    this.selectedBar = bar;
+    this.selectedTime = bar.time;
     slideItem.close();
-    this.destination = {lat: parseFloat(destLat),  lng: parseFloat(destLng)};
-    this.displayRoute();
-    this.getDistance();
+    this.mapProvider.destination = {lat: parseFloat(bar.lat),  lng: parseFloat(bar.lng)};
+    this.mapProvider.displayRoute();
   }
 
   showBarDetail(bar) {
@@ -121,53 +109,49 @@ export class LocationPage {
   }
 
   changeTravelMode(travelMode, travelIcon, fab: FabContainer) {
-    this.travelMode = travelMode;
+    this.mapProvider.travelMode = travelMode;
     this.travelIcon = travelIcon;
-    this.displayRoute();
+    this.mapProvider.displayRoute();
+    fab.close();
+    this.computeDistance().then( tmp => {
+      this.bars = tmp;
+      this.sortList();
+      if (this.selectedBar) { this.selectedBar = this.bars.find(x => x.name === this.selectedBar.name)}
+    })
+  }
+
+  refreshLocation(fab : FabContainer) {
+    this.loading = this.loadingController.create({content: "Recherche des bars près de votre position..."});
+    this.loading.present();
+    this.mapProvider.getMyLocation().then(value => {
+      this.mapProvider.clearRoute();
+      this.computeDistance().then( tmp => {
+        this.bars = tmp;
+        this.sortList();
+        this.loading.dismissAll();
+      })
+    })
+      .catch((error) => {
+        this.loading.dismissAll();
+      })
     fab.close();
   }
 
-  updateMapLocation() {
-    this.myIcon.url = "assets/icon/icon.png";
-    this.myMarker.setOptions( {
-      position: this.myLocation,
-      icon: this.myIcon,
-      map: this.map
-    });
-    this.map.setZoom(14);
-    this.map.setCenter(this.myLocation);
-  }
-
-  getMyLocation() {
-    this.loading = this.loadingController.create({content: "Searching for your location, please wait..."});
-    this.loading.present();
-    this.geolocation.getCurrentPosition()
-      .then(
-        location => {
-          this.myLocation = {lat: location.coords.latitude, lng: location.coords.longitude};
-          this.updateMapLocation();
-          this.loadBars();
-        }
-      )
-      .catch(
-        (error) => {
-          console.log(error)
-          this.loading.dismissAll();
-          this.showErrorOnLocation();
-        }
-      );
-  }
-
-  showErrorOnLocation() {
+  setLocationOnLille(fab : FabContainer) {
+    fab.close();
     let confirm = this.alertCtrl.create({
-      title: "La localisation a échouéé",
+      title: "Forcer la localisation",
       message: "Pour profiter de l'expérience au maximum, souhaitez vous être localisé dans le centre de Lille?",
       buttons: [
         { text: 'Non merci' },
         { text: 'Ok', handler: () => {
-          this.myLocation = {lat: 50.629720, lng: 3.061409};
-          this.updateMapLocation();
-        }
+          this.mapProvider.myLocation = {lat: 50.629720, lng: 3.061409};
+          this.mapProvider.updateMapLocation();
+          this.mapProvider.clearRoute();
+          this.computeDistance().then( tmp => {
+            this.bars = tmp;
+            this.sortList();
+          })}
         }
       ]
     });

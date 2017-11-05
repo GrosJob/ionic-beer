@@ -3,6 +3,9 @@ page-location {
     height: 300px;
   }
 
+  .scroll-content {
+    padding-top: 0px !important;
+  }
   .header-md::after, .tabs-md[tabsPlacement="top"] > .tabbar::after, .footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before {
     width: 0;
   }
@@ -55,6 +58,11 @@ page-location {
     height: 40%;
     top: 60%;
   }
+
+  .content_list .scroll-content {
+    padding-top: 16px !important;
+  }
+
   .content_list fixed-content {
     margin-top: 10px;
   }
@@ -64,7 +72,7 @@ page-location {
   }
 
   .distance-chip{
-    right: 0.5em;
+    right: 1em;
     padding-left: 4px;
     width: fit-content;
     background-color: rgba(189, 189, 189, 0.41);
@@ -75,6 +83,15 @@ page-location {
     top: 0.5em;
   }
 
+  .arrow{
+    right: 0;
+    padding: 15px 5px;
+    position: absolute;
+    top: 20%;
+    height: 50px;
+    width: auto;
+  }
+
   .distance-icon{
     background-color: #32db64;
     border-radius: 50%;
@@ -82,5 +99,41 @@ page-location {
     color: white;
   }
 
+  .travelInfos {
+    position: absolute;
+    top: 1em;
+    right: 1.2em;
+    z-index: 2;
+  }
+
+  .refreshFab {
+    left: 6em;
+  }
+
+  .fab-md {
+    background-color: rgba(72, 138, 255, 0.8);
+  }
+
+  .fab-md-in-list {
+    background-color: #f4f4f4;
+  }
+
+  .chip-md {
+    color: rgba(255, 255, 255, 0.87);
+    background: rgba(140, 129, 129, 0.69);
+    height: 22px;
+    font-size: 13px;
+    line-height: 22px;
+  }
+
+  ion-chip ion-icon {
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+  }
+
+  .chip-md > ion-label {
+    margin: 0 5px;
+  }
 }
 

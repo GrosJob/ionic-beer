@@ -13,15 +13,30 @@
 </ion-header>
 
 <ion-content class="content_map" padding>
+
+  <ion-fab class="refreshFab" left top  #refreshFab>
+    <button ion-fab color="blue"><ion-icon name="locate"></ion-icon></button>
+    <ion-fab-list side="bottom">
+      <button ion-fab (click)="refreshLocation(refreshFab)"><ion-icon name="refresh"></ion-icon></button>
+      <button ion-fab (click)="setLocationOnLille(refreshFab)"><ion-icon name="paper-plane"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+
   <ion-fab left top  #travelFab>
     <button ion-fab color="blue"><ion-icon name="{{ this.travelIcon }}"></ion-icon></button>
     <ion-fab-list side="bottom">
       <button ion-fab (click)="changeTravelMode('DRIVING', 'car' ,travelFab)"><ion-icon name="car"></ion-icon></button>
       <button ion-fab (click)="changeTravelMode('BICYCLING', 'bicycle' ,travelFab)"><ion-icon name="bicycle"></ion-icon></button>
-      <button ion-fab (click)="changeTravelMode('TRANSIT', 'bus' ,travelFab)"><ion-icon name="bus"></ion-icon></button>
       <button ion-fab (click)="changeTravelMode('WALKING', 'walk' ,travelFab)"><ion-icon name="walk"></ion-icon></button>
     </ion-fab-list>
   </ion-fab>
+
+  <div *ngIf="mapProvider.destination && selectedBar" class="travelInfos">
+    <ion-chip>
+      <ion-label>{{selectedBar.time}}</ion-label>
+      <ion-icon name="pin" color="secondary"></ion-icon>
+    </ion-chip>
+  </div>
 
   <!--  <ion-grid>
       <ion-row>
@@ -66,15 +81,16 @@
           <p>{{item.name}}</p>
         </div>
           <div class="distance-chip">
-            500m
+            {{item.dist}}
             <ion-icon class="distance-icon" name="pin" color="whilte"></ion-icon>
           </div>
+        <img class="arrow" src="assets/img/back.png">
       </ion-item>
 
 
 
       <ion-item-options side="right">
-        <button ion-button (click)="clickOnDestination(item.lat, item.lng, slideItem);">Let's Go!</button>
+        <button ion-button (click)="clickOnDestination(item, item.lat, item.lng, slideItem);">Let's Go!</button>
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
